@@ -13,7 +13,7 @@ fun imgUrl(imgView: ImageView, url: String?){
             .load(it)
             .apply(
                 RequestOptions().placeholder(R.drawable.loading_animation)
-                .error(R.drawable.ic_broken_image))
+                    .error(R.drawable.ic_broken_image))
             .into(imgView)
     }
 }

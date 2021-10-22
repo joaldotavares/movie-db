@@ -7,11 +7,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-open class MovieDBDataSource(): MoviesDataSource {
+class MovieDBDataSource: MoviesDataSource {
     override suspend fun getMovies(): MovieResponse? {
         try {
             val movieResponse = withContext(Dispatchers.IO){
-                Repository.getApi().getPopularMovies(API_KEY)
+                Repository.getApi().getMovies(API_KEY)
             }
             if(movieResponse != null){
                 return movieResponse
@@ -21,5 +21,4 @@ open class MovieDBDataSource(): MoviesDataSource {
             return null
         }
     }
-
 }

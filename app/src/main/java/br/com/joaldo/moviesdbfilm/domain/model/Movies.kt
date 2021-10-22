@@ -15,8 +15,8 @@ class Movies(
 ) : ViewModel() {
 
     private val _moviesLiveData = MutableLiveData<Resource<DataMovie>>()
-    val moviesLiveData: LiveData<Resource<DataMovie>> get() = _moviesLiveData
 
+    val moviesLiveData: LiveData<Resource<DataMovie>> get() = _moviesLiveData
 
     fun getMovies() = viewModelScope.launch {
         try {
@@ -24,11 +24,11 @@ class Movies(
                 useCase.getMovies()
             }
             withContext(Dispatchers.Main) {
-                _moviesLiveData.value = Resource.sucess(movies)
+                _moviesLiveData.value = Resource.success(movies)
             }
-        } catch (e: Exception) {
+        }catch (e: Exception){
             withContext(Dispatchers.Main) {
-                _moviesLiveData.value = Resource.erro(null, e.message.toString())
+                _moviesLiveData.value = Resource.erro(e.message.toString())
             }
         }
     }

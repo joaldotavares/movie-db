@@ -12,7 +12,7 @@ import org.koin.dsl.module
 
 val findMovieModule = module {
 
-    single<MovieRepository> {
+    single<MovieRepository>{
         MovieRepositoryImpl(get())
     }
 
@@ -24,7 +24,5 @@ val findMovieModule = module {
         MovieUseCaseImpl(get())
     }
 
-    viewModel<Movies> {
-        Movies(get())
-    }
+    viewModel<Movies> { Movies(get()) }
 }

@@ -13,7 +13,7 @@ object Repository{
 
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .baseUrl("$URL_BASE")
+            .baseUrl(URL_BASE)
             .build()
             .create(ApiService::class.java)
     }

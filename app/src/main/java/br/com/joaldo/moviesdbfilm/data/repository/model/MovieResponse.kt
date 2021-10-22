@@ -7,6 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class MovieResponse(
     val page: Int,
     val results: List<Movie>,
-    val total_page: Int,
+    val total_pages: Int,
     val total_results: Int
-): Parcelable
+) : Parcelable

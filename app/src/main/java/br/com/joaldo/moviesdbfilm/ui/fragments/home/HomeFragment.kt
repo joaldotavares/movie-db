@@ -13,20 +13,20 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: Fragment() {
 
-    private val homeAdapter = HomeFragmentAdapter()
-    private lateinit var binding: HomeFragmentLayoutBinding
+    private var binding: HomeFragmentLayoutBinding? = null
+
     private val moviesViewModel: Movies by viewModel()
+
+    private var homeAdapter = HomeFragmentAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-            binding = HomeFragmentLayoutBinding.inflate(inflater, container, false)
+        binding = HomeFragmentLayoutBinding.inflate(inflater, container, false)
 
-            binding.lifecycleOwner = this
-
-        return binding.root
+        return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,6 +36,7 @@ class HomeFragment: Fragment() {
     }
 
     override fun onDestroyView() {
+        binding = null
         super.onDestroyView()
     }
 
@@ -43,7 +44,6 @@ class HomeFragment: Fragment() {
         binding?.let {
             it.homeFragmentRecyclerView.run {
                 setHasFixedSize(true)
-
                 layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
                 adapter = homeAdapter
             }

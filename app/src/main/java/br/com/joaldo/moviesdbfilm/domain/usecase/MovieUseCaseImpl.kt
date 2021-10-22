@@ -13,9 +13,9 @@ class MovieUseCaseImpl(
         var movies = DataMovie()
 
         moviesResponse?.let {
-            for (movie in moviesResponse.results) {
-                val imageUrl = movie.poster_path
-                movie.poster_path = IMAGE_URL + imageUrl
+            for(movie in moviesResponse.results){
+                val url = movie.poster_path
+                movie.poster_path = IMAGE_URL + url
                 movies.results.add(movie)
             }
             return movies
