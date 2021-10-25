@@ -1,16 +1,17 @@
-package br.com.joaldo.moviesdbfilm.domain.model
+package br.com.joaldo.moviesdbfilm.ui.fragments.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.joaldo.moviesdbfilm.domain.model.DataMovie
 import br.com.joaldo.moviesdbfilm.domain.usecase.MovieUseCase
 import br.com.joaldo.moviesdbfilm.support.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class Movies(
+class MoviesViewModel(
     private val useCase: MovieUseCase
 ) : ViewModel() {
 

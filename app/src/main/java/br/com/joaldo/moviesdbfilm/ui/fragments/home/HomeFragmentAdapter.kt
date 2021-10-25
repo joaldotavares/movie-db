@@ -1,6 +1,5 @@
 package br.com.joaldo.moviesdbfilm.ui.fragments.home
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,29 +7,23 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.joaldo.moviesdbfilm.data.repository.model.Movie
 import br.com.joaldo.moviesdbfilm.databinding.HomeItemLayoutBinding
-import com.bumptech.glide.Glide
 
 class HomeFragmentAdapter :
     ListAdapter<Movie, HomeFragmentAdapter.HomeViewHolder>(DIFF_CALLBACK) {
 
-    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        context = parent.context
         return HomeViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.binding(getItem(position), context)
+        holder.binding(getItem(position))
     }
 
     class HomeViewHolder(private val itemLayoutBind: HomeItemLayoutBinding): RecyclerView.ViewHolder(itemLayoutBind.root){
 
-        fun binding(movies: Movie, context: Context){
-
-            itemLayoutBind.run {
-                Glide.with(context).load(movies.poster_path).into(homeItemImage)
-            }
+        fun binding(movies: Movie){
+            itemLayoutBind.movie = movies
         }
 
         companion object {
