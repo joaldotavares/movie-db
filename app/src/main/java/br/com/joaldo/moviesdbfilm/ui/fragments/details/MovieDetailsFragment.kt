@@ -9,7 +9,7 @@ import androidx.navigation.fragment.navArgs
 import br.com.joaldo.moviesdbfilm.data.repository.model.Movie
 import br.com.joaldo.moviesdbfilm.databinding.DetailsFragmentLayoutBinding
 
-class MovieDetailsFragment: Fragment() {
+class MovieDetailsFragment : Fragment() {
     private val args by navArgs<MovieDetailsFragmentArgs>()
     private lateinit var movie: Movie
     private lateinit var binding: DetailsFragmentLayoutBinding
@@ -26,9 +26,9 @@ class MovieDetailsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DetailsFragmentLayoutBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = this
-        return binding.root
+        return DetailsFragmentLayoutBinding.inflate(inflater, container, false).apply {
+            binding = this
+        }.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="movie"
             type="br.com.joaldo.moviesdbfilm.data.repository.model.Movie" />
@@ -18,34 +19,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/black"
-            android:padding="8dp"
-            >
+            android:padding="8dp">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/movie_details_fragment_image"
-                android:layout_width="0dp"
-                android:layout_height="200dp"
-                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:strokeColor="@android:color/darker_gray"
+                app:strokeWidth="2dp"
+                android:adjustViewBounds="true"
+                app:imgUrl="@{movie.backdrop_path}"
+                app:layout_constraintBottom_toTopOf="@id/movie_details_fragment_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:imgUrl="@{movie.poster_path}"
-                tools:src="@drawable/launch_screen" />
+                app:shapeAppearanceOverlay="@style/roundedCornersDetailsImageView"
+                tools:src="@drawable/ic_broken_image" />
 
             <TextView
                 android:id="@+id/movie_details_fragment_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:text="@{movie.original_title}"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="24sp"
-                android:text="@{movie.original_title}"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@id/movie_details_fragment_vote_average"
                 app:layout_constraintStart_toStartOf="@id/movie_details_fragment_image"
                 app:layout_constraintTop_toBottomOf="@id/movie_details_fragment_image"
-                tools:text="A procura da dos procurados procurando salves todo dia em busca do conhecimento sublime"
+                tools:text="A procura dos procurados"
 
                 />
 
@@ -53,9 +57,9 @@
                 android:id="@+id/movie_details_fragment_vote_average"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{movie.vote_average}"
                 android:textColor="#FFC107"
                 android:textSize="20sp"
-                android:text="@{movie.vote_average}"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/movie_details_fragment_overview"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -68,23 +72,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textSize="16dp"
-                android:justificationMode="inter_word"
-                android:textColor="@color/white"
                 android:text="@{movie.overview}"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:justificationMode="inter_word"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/movie_details_fragment_title"
                 app:layout_constraintTop_toBottomOf="@id/movie_details_fragment_title"
                 app:layout_constraintVertical_bias="0"
-                tools:text="procura dos procurados dos procurado salves todo diaprocura dos procurados dos procurado salves todo dia em busca do conh em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh
-procura dos procurados dos procurado salves todo dia em busca do conh" />
+                tools:text="Em uma sociedade totalmente utilitaria onde uma instituiçao de ensino como a corleone se posiciona em relaçao as leis monetarias em vigor referentes a opiniao nacional a respeito do preço do ouro" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

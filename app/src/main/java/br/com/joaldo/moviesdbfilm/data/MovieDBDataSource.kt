@@ -11,7 +11,7 @@ class MovieDBDataSource: MoviesDataSource {
     override suspend fun getMovies(): MovieResponse? {
         try {
             val movieResponse = withContext(Dispatchers.IO){
-                Repository.getApi().getMovies(API_KEY)
+                Repository.getApi().getMovies(API_KEY, "pt-BR")
             }
             if(movieResponse != null){
                 return movieResponse

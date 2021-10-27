@@ -15,7 +15,9 @@ class MovieUseCaseImpl(
         moviesResponse?.let {
             for(movie in moviesResponse.results){
                 val url = movie.poster_path
+                val backUrl = movie.backdrop_path
                 movie.poster_path = IMAGE_URL + url
+                movie.backdrop_path = IMAGE_URL + backUrl
                 movies.results.add(movie)
             }
             return movies

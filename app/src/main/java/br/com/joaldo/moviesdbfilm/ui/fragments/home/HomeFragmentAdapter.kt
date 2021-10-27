@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.joaldo.moviesdbfilm.data.repository.model.Movie
 import br.com.joaldo.moviesdbfilm.databinding.HomeItemLayoutBinding
 
-typealias OnItemClickListener = (movie: Movie) -> Unit
-
-class HomeFragmentAdapter(private val onItemClickListener: OnItemClickListener):
+class HomeFragmentAdapter:
     ListAdapter<Movie, HomeFragmentAdapter.HomeViewHolder>(DIFF_CALLBACK) {
+
+    var onItemClickListener: (movie: Movie) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         return HomeViewHolder.create(parent)
@@ -19,29 +19,34 @@ class HomeFragmentAdapter(private val onItemClickListener: OnItemClickListener):
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         holder.binding(getItem(position), onItemClickListener)
-
     }
 
-    class HomeViewHolder(private val itemLayoutBind: HomeItemLayoutBinding): RecyclerView.ViewHolder(itemLayoutBind.root){
+    class HomeViewHolder(private val itemLayoutBind: HomeItemLayoutBinding) :
+        RecyclerView.ViewHolder(itemLayoutBind.root) {
 
-        fun binding(movies: Movie, onItemClickListener: OnItemClickListener){
+        fun binding(movies: Movie, onItemClickListener: (movie: Movie) -> Unit) {
             itemLayoutBind.movie = movies
 
             itemLayoutBind.root.setOnClickListener {
-                onItemClickListener.invoke(movies)
+                onItemClickListener(movies)
             }
         }
 
         companion object {
-            fun create(parent: ViewGroup): HomeViewHolder{
-                val itemBind = HomeItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            fun create(parent: ViewGroup): HomeViewHolder {
+                val itemBind = HomeItemLayoutBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
                 return HomeViewHolder(itemBind)
             }
         }
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>(){
+
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>() {
 
             override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
                 return oldItem.poster_path == newItem.poster_path
