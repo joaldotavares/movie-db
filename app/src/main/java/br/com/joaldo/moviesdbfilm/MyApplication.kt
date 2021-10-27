@@ -10,6 +10,8 @@ import org.koin.core.context.startKoin
 class MyApplication: Application(), KoinComponent {
 
     override fun onCreate() {
+
+
         super.onCreate()
 
         startKoin {

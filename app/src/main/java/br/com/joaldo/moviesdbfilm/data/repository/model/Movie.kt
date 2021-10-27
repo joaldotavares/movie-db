@@ -9,5 +9,5 @@ data class Movie(
     var poster_path: String,
     val original_title: String,
     val overview: String,
-    val vote_average: Double
+    val vote_average: String
 ): Parcelable

@@ -8,22 +8,28 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.joaldo.moviesdbfilm.data.repository.model.Movie
 import br.com.joaldo.moviesdbfilm.databinding.HomeItemLayoutBinding
 
-class HomeFragmentAdapter :
-    ListAdapter<Movie, HomeFragmentAdapter.HomeViewHolder>(DIFF_CALLBACK) {
+typealias OnItemClickListener = (movie: Movie) -> Unit
 
+class HomeFragmentAdapter(private val onItemClickListener: OnItemClickListener):
+    ListAdapter<Movie, HomeFragmentAdapter.HomeViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         return HomeViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        holder.binding(getItem(position))
+        holder.binding(getItem(position), onItemClickListener)
+
     }
 
     class HomeViewHolder(private val itemLayoutBind: HomeItemLayoutBinding): RecyclerView.ViewHolder(itemLayoutBind.root){
 
-        fun binding(movies: Movie){
+        fun binding(movies: Movie, onItemClickListener: OnItemClickListener){
             itemLayoutBind.movie = movies
+
+            itemLayoutBind.root.setOnClickListener {
+                onItemClickListener.invoke(movies)
+            }
         }
 
         companion object {
