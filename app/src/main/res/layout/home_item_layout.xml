@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -23,6 +24,7 @@
             android:layout_height="wrap_content"
             app:strokeWidth="2dp"
             app:strokeColor="@android:color/darker_gray"
+            tools:src="@tools:sample/backgrounds/scenic"
             app:imgUrl="@{movie.poster_path}"
             app:shapeAppearanceOverlay="@style/roundedCornersHomeImageView" />
 

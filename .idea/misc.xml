@@ -10,8 +10,11 @@
         <entry key="app/src/main/res/drawable/launch_screen.xml" value="0.23796296296296296" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/details_fragment_layout.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/details_marvel_fragment_layout.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/home_fragment_layout.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/home_item_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home_item_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/home_marvel_fragment_layout.xml" value="0.25052083333333336" />
+        <entry key="app/src/main/res/layout/home_marvel_item_layout.xml" value="0.25052083333333336" />
         <entry key="app/src/main/res/layout/loading_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="app/src/main/res/menu/nav_drawer_menu.xml" value="0.1" />

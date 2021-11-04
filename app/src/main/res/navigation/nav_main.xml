@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_homeMarvelFragment"
+            app:destination="@id/homeMarvelFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
@@ -19,6 +22,14 @@
         <argument
             android:name="movie"
             app:argType="br.com.joaldo.moviesdbfilm.data.repository.model.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeMarvelFragment"
+        android:name="br.com.joaldo.moviesdbfilm.ui.fragments.home.marvel.HomeMarvelFragment"
+        android:label="Marvel" >
+        <argument
+            android:name="character"
+            app:argType="br.com.joaldo.moviesdbfilm.data.repository.marvel.Result" />
     </fragment>
 
 </navigation>
