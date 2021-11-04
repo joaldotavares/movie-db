@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="192dp"
     android:id="@+id/nav_header"
-    android:background="@android:color/darker_gray"
+    android:background="@android:color/background_dark"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/splash"
         android:layout_marginBottom="24dp"
         />
 

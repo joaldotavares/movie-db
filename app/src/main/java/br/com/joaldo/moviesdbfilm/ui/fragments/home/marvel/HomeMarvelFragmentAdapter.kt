@@ -11,19 +11,25 @@ import br.com.joaldo.moviesdbfilm.databinding.HomeMarvelItemLayoutBinding
 class HomeMarvelFragmentAdapter :
     ListAdapter<Result, HomeMarvelFragmentAdapter.HomeMarvelViewHolder>(DIIF_CALLBACK) {
 
+    var onItemClickListener: (result: Result) -> Unit = {}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeMarvelViewHolder {
         return HomeMarvelViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: HomeMarvelViewHolder, position: Int) {
-        holder.binding(getItem(position))
+        holder.binding(getItem(position), onItemClickListener)
     }
 
     class HomeMarvelViewHolder(private val itemLayoutBinding: HomeMarvelItemLayoutBinding) :
         RecyclerView.ViewHolder(itemLayoutBinding.root) {
 
-        fun binding(results: Result) {
+        fun binding(results: Result, onItemClickListener: (result: Result) -> Unit) {
             itemLayoutBinding.result = results
+
+            itemLayoutBinding.root.setOnClickListener {
+                onItemClickListener(results)
+            }
         }
 
         companion object {
