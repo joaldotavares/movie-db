@@ -30,6 +30,17 @@
         <argument
             android:name="character"
             app:argType="br.com.joaldo.moviesdbfilm.data.repository.marvel.Result" />
+        <action
+            android:id="@+id/action_homeMarvelFragment_to_marvelDetailsFragment"
+            app:destination="@id/marvelDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/marvelDetailsFragment"
+        android:name="br.com.joaldo.moviesdbfilm.ui.fragments.details.MarvelDetailsFragment"
+        android:label="Detalhes Do Personagem" >
+        <argument
+            android:name="result"
+            app:argType="br.com.joaldo.moviesdbfilm.data.repository.marvel.Result" />
     </fragment>
 
 </navigation>

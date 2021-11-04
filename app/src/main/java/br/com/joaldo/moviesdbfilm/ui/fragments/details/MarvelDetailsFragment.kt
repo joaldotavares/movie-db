@@ -12,14 +12,14 @@ import br.com.joaldo.moviesdbfilm.ui.fragments.home.marvel.HomeMarvelFragmentArg
 
 class MarvelDetailsFragment : Fragment() {
 
-    private val args by navArgs<HomeMarvelFragmentArgs>()
+    private val args by navArgs<MarvelDetailsFragmentArgs>()
     private lateinit var result: Result
     private lateinit var binding: DetailsMarvelFragmentLayoutBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments.let {
-            result = args.character
+            result = args.result
         }
     }
 

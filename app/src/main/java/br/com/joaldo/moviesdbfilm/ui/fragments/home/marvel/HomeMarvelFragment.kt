@@ -51,6 +51,11 @@ class HomeMarvelFragment: Fragment() {
                 layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
                 adapter = homeAdapter
             }
+
+            homeAdapter.onItemClickListener = { it ->
+                val directions = HomeMarvelFragmentDirections.actionHomeMarvelFragmentToMarvelDetailsFragment(it)
+                findNavController().navigate(directions)
+            }
         }
     }
 
