@@ -25,7 +25,7 @@
             app:strokeWidth="2dp"
             app:strokeColor="@android:color/darker_gray"
             tools:src="@tools:sample/backgrounds/scenic"
-            app:imgUrl="@{movie.poster_path}"
+            app:imgUrl="@{movie.posterPath}"
             app:shapeAppearanceOverlay="@style/roundedCornersHomeImageView" />
 
     </LinearLayout>
